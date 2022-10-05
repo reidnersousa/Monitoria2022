@@ -21,7 +21,7 @@ Conjunto* conj_cria(char x[20])
 
     strcpy(p->x,x);
 
-   // p->x = x;
+    // p->x = x;
     //p->y = y;
     return p;
 }
@@ -35,36 +35,49 @@ void conj_libera(Conjunto* p)
 }
 
 
-void conj_imprimir(Conjunto *c){
+void conj_imprimir(Conjunto *c)
+{
     printf("\ninfo %s",c->x);
 
 
 
 }
 
-void conj_imprimirFor(Conjunto *c){
+void conj_imprimirFor(Conjunto *c)
+{
     int tam=0;
     int i=0;
     tam=strlen(c->x);
-    for(i=0; i<tam;i++){
+    for(i=0; i<tam; i++)
+    {
         printf("\ninfo %c  i=%d",c->x[i],i); // numeros com indice par serao os numero do conjunto  e os indices impares terao ,
     }
 }
 
 
-void Inte (Conjunto *a , Conjunto *b){
+void Inte (Conjunto *a, Conjunto *b)
+{
     int tamA=0;
     int tamB=0;
-    int i=0;
+    int i=0,j=0;
     tamA=strlen(a->x);
     tamB=strlen(b->x);
 
-    for(i=0; i<tamA;i+2){
 
-        printf("\ninfo %c  i=%d",a->x[i],i); // numeros com indice par serao os numero do conjunto  e os indices impares terao ,
+    for(i=0; i<tamA; i+=2)
+    {
+        //printf("\ninfo %c  i=%d",a->x[i],i); // numeros com indice par serao os numero do conjunto  e os indices impares terao ,
+        for(j=0; b->x[j]!=NULL; j+=2)
+        //for(j=0; i<tamB; j+=2)
+        {
+            if(a->x[i]==b->x[j]){
+                printf("\nA =%c  B=%c",a->x[i],b->x[j]);
+            }
+
+        }
+
+
+
     }
-
-
-
 
 }

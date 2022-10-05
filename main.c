@@ -9,13 +9,7 @@ int main()
     Conjunto * b = conj_cria("b,d");
 
 
-    printf("\n>>>a");
-    conj_imprimir(a);
-    conj_imprimirFor(a);
-
-    printf("\n>>b");
-    conj_imprimir(b);
-    conj_imprimirFor(b);
+    Inte(a,b);
 
     conj_libera(a);
 
