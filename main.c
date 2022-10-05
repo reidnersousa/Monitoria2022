@@ -4,15 +4,23 @@
 int main()
 {
 
-    float x, y;
-    Conjunto * p = conj_cria("2","1.0BAC");
+
+    Conjunto * a = conj_cria("a,b,c");
+    Conjunto * b = conj_cria("b,d");
 
 
+    printf("\n>>>a");
+    conj_imprimir(a);
+    conj_imprimirFor(a);
 
-    conj_imprimir(p);
-    conj_imprimirFor(p);
+    printf("\n>>b");
+    conj_imprimir(b);
+    conj_imprimirFor(b);
 
-    conj_libera(p);
-    printf("Hello world!\n");
+    conj_libera(a);
+
+
+    conj_libera(b);
+
     return 0;
 }

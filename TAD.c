@@ -7,9 +7,9 @@
 struct conjunto
 {
     char x[20];
-    char y[20];
+
 };
-Conjunto* conj_cria(char x[20], char y[20])
+Conjunto* conj_cria(char x[20])
 {
     Conjunto* p = (Conjunto*) malloc(sizeof(Conjunto));
     if (p == NULL)
@@ -20,7 +20,7 @@ Conjunto* conj_cria(char x[20], char y[20])
 
 
     strcpy(p->x,x);
-    strcpy(p->y,y);
+
    // p->x = x;
     //p->y = y;
     return p;
@@ -37,7 +37,7 @@ void conj_libera(Conjunto* p)
 
 void conj_imprimir(Conjunto *c){
     printf("\ninfo %s",c->x);
-    printf("\ninfo %s",c->y);
+
 
 
 }
@@ -45,10 +45,23 @@ void conj_imprimir(Conjunto *c){
 void conj_imprimirFor(Conjunto *c){
     int tam=0;
     int i=0;
-    tam=strlen(c->y);
-    for(i=0; i<5;i++){
-        printf("\ninfo %c",c->x[i]);
-        printf("\ninfo %c",c->y[i]);
+    tam=strlen(c->x);
+    for(i=0; i<tam;i++){
+        printf("\ninfo %c  i=%d",c->x[i],i); // numeros com indice par serao os numero do conjunto  e os indices impares terao ,
+    }
+}
+
+
+void Inte (Conjunto *a , Conjunto *b){
+    int tamA=0;
+    int tamB=0;
+    int i=0;
+    tamA=strlen(a->x);
+    tamB=strlen(b->x);
+
+    for(i=0; i<tamA;i+2){
+
+        printf("\ninfo %c  i=%d",a->x[i],i); // numeros com indice par serao os numero do conjunto  e os indices impares terao ,
     }
 
 
