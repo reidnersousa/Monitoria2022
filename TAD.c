@@ -37,7 +37,7 @@ void conj_libera(Conjunto* p)
 
 void conj_imprimir(Conjunto *c)
 {
-    printf("\ninfo %s",c->x);
+    printf("\ninfo l%s",c->x);
 
 
 
@@ -55,13 +55,15 @@ void conj_imprimirFor(Conjunto *c)
 }
 
 
-void Inte (Conjunto *a, Conjunto *b)
+void Inte (Conjunto *a, Conjunto *b,Conjunto *c)
 {
     int tamA=0;
     int tamB=0;
     int i=0,j=0;
     tamA=strlen(a->x);
     tamB=strlen(b->x);
+
+
 
 
     for(i=0; i<tamA; i+=2)
@@ -71,7 +73,10 @@ void Inte (Conjunto *a, Conjunto *b)
         //for(j=0; i<tamB; j+=2)
         {
             if(a->x[i]==b->x[j]){
-                printf("\nA =%c  B=%c",a->x[i],b->x[j]);
+                printf("\nA =%c  B=%c  i=%d j=%d",a->x[i],b->x[j],i,j);
+               // strcpy(c->x,b->x[0]);
+
+
             }
 
         }
@@ -79,5 +84,6 @@ void Inte (Conjunto *a, Conjunto *b)
 
 
     }
+    //return c;
 
 }
