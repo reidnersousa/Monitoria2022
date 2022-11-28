@@ -29,7 +29,7 @@ int  adm()
 {
     int opc;
 
-    printf("________________Seleciones as opções ____________\n\n");
+    printf("\n\n________________Seleciones as opções ____________\n\n");
     printf("1 Inserir \n");
     printf("2 Procura Produto pelo codigo\n");
     printf("3 Mostra todos os elementos no estoque\n \n");
@@ -54,12 +54,18 @@ Arv *inserirProdutoTeste(Arv * l,Produto i)
     novo->info.qtdProduto=i.qtdProduto;
 
 
-    conta++; // variavel global
-    if (conta %2 ==0){
+    conta++; // variavel global[
+    printf("\n conta %d",conta);
+    if (conta %2 ==0)
+    {
+
+        printf("\n valor inserido na direita");
         novo->dir=l;
 
     }
-    else{
+    else
+    {
+        printf("\n valor inserido na esquerda");
         novo->esq=l;
 
     }
@@ -109,10 +115,13 @@ void controleFuncionario()
         }
         if(reposta==3)
         {
-            imprimeTodosProduto(creb);
+            //imprimeTodosProduto(creb);
+            imprimeArvores(creb);
         }
+
     }
     while(reposta!=7);
+    libera(creb);
 }
 
 
@@ -131,9 +140,39 @@ Arv* inserirProduto( Arv * l, Produto i)
     return novo;
 }
 
+int diviso=0; // variavel global
+
+void imprimeArvores (Arv* a)
+{
+    diviso++;
+    if (!vazia(a))
+    {
+        printf("_______________PRODUTOS___________________\n");
+        if (diviso %2 ==0)
+        {
+            printf("\n lado direito");
+
+            printf("  matricula  : %d \n",a->info.matricula);
+            printf("  qtd        : %d \n",a->info.qtdProduto);
+            printf("  tipo       : %d \n",a->info.tipo);
+            printf("  preco      : %f \n",a->info.preco);
+        }
+        else
+        {
+            printf("\n lado esquerdo");
+
+            printf("  matricula  : %d \n",a->info.matricula);
+            printf("  qtd        : %d \n",a->info.qtdProduto);
+            printf("  tipo       : %d \n",a->info.tipo);
+            printf("  preco      : %f \n",a->info.preco);
+        }
 
 
 
+        imprimeArvores(a->esq); /* mostra sae */
+        imprimeArvores(a->dir); /* mostra sad */
+    }
+}
 
 
 void imprimeTodosProduto(Arv *l)
@@ -145,10 +184,8 @@ void imprimeTodosProduto(Arv *l)
     {
         printf("_______________PRODUTOS___________________\n");
         printf("_________________DIR_______________________\n");
-        printf("  codigo     : %d \n",recebe->info.matricula);
+        printf("  matricula  : %d \n",recebe->info.matricula);
         printf("  qtd        : %d \n",recebe->info.qtdProduto);
-
-
         printf("  tipo       : %d \n",recebe->info.tipo);
         printf("  preco      : %f \n",recebe->info.preco);
 
