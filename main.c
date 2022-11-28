@@ -10,8 +10,13 @@ int main()
 
     controleFuncionario();
 
+
+    Aarv* al= cria('d',inicializa(),inicializa()); // sub-árvore com 'd'
+    printf("\n%d",busca(al,'d'));
+    printf("\n%d",busca(al,'b'));
+    imprime(al);
+    libera(al);
    /*
-    Aarv* a1= cria('d',inicializa(),inicializa()); // sub-árvore com 'd'
     Aarv* a2= cria('b',inicializa(),a1); // sub-árvore com 'b'
     Aarv* a3= cria('e',inicializa(),inicializa()); // sub-árvore com 'e'
 

@@ -43,6 +43,14 @@ void imprime (Aarv* a)
 }
 
 
+int busca (Aarv* a, char c){
+ if (vazia(a))
+ return 0; /* árvore vazia: não encontrou */
+ else
+ return a->info==c || busca(a->esq,c) || busca(a->dir,c);
+}
+
+
 Aarv* libera (Aarv* a){
  if (!vazia(a)){
  libera(a->esq); /* libera sae */

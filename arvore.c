@@ -101,6 +101,7 @@ void controleFuncionario()
     Arv *creb=inicializa_Arvore();
 
     int reposta;
+    int estaNaArvore;
     do
     {
         reposta=adm();
@@ -112,6 +113,12 @@ void controleFuncionario()
             creb=DigitaStruct(creb);
 
 
+        }
+        if (reposta == 2){
+            printf("\nse for 1 esta na arvore se for 0 não esta ");
+            estaNaArvore=buscaArvore(creb,1);
+
+            printf("\nvalor e %d",estaNaArvore);
         }
         if(reposta==3)
         {
@@ -139,6 +146,17 @@ Arv* inserirProduto( Arv * l, Produto i)
     novo->esq=l;
     return novo;
 }
+
+
+
+int buscaArvore (Arv* a, int matricula){
+ if (vazia(a))
+ return 0; /* árvore vazia: não encontrou */
+ else
+ return a->info.matricula==matricula || busca(a->esq,matricula) || busca(a->dir,matricula);
+}
+
+
 
 int diviso=0; // variavel global
 
@@ -173,6 +191,8 @@ void imprimeArvores (Arv* a)
         imprimeArvores(a->dir); /* mostra sad */
     }
 }
+
+
 
 
 void imprimeTodosProduto(Arv *l)
