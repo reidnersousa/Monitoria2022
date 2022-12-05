@@ -1,4 +1,3 @@
-
 #include<stdio.h>
 #include<stdlib.h>
 #include"arvore.h"
@@ -29,11 +28,11 @@ int  adm()
 {
     int opc;
 
-    printf("\n\n________________Seleciones as opções ____________\n\n");
+    printf("\n\n________________Seleciones as opÃ§Ãµes ____________\n\n");
     printf("1 Inserir \n");
     printf("2 Procura Produto pelo codigo\n");
     printf("3 Mostra todos os elementos no estoque\n \n");
-    printf("4 Reservar materiais mediante solicitações\n");
+    printf("4 Excluir um produtor pelo codigo  \n");
     printf("5 Decidir onde vai guarda o produto\n");
     printf("6 Imprimir os valores de um produto\n");
     printf("7 sai do sistema \n ");
@@ -114,21 +113,62 @@ void controleFuncionario()
 
 
         }
-        if (reposta == 2){
-            printf("\nse for 1 esta na arvore se for 0 não esta ");
-            estaNaArvore=buscaArvore(creb,1);
+        if (reposta == 2)
+        {
+            int d1;
+            int sim_nao;
+            printf("\n Digite o codigo do produto ");
+            scanf("%d",&d1);
+            estaNaArvore=buscaArvore(creb,d1);
 
             printf("\nvalor e %d",estaNaArvore);
+            if (estaNaArvore == 1)
+            {
+                printf("Valor esta dentro ");
+
+
+            }
+            else
+            {
+                printf("NÃ£o %d esta na arvore",estaNaArvore);
+            }
         }
         if(reposta==3)
         {
             //imprimeTodosProduto(creb);
             imprimeArvores(creb);
         }
+        if(reposta==4)
+        {
+            int d1;
+            printf("\n Digite a matricula do produto, para excluir o produto");
+            scanf("%d",&d1);
+            estaNaArvore=buscaArvore(creb,d1);
+
+            printf("\nvalor e %d",estaNaArvore);
+            if (estaNaArvore == 1)
+            {
+                printf("Valor esta dentro ");
+                removerProduto(creb,d1);
+
+
+            }
+            else
+            {
+                printf("NÃ£o %d esta na arvore",estaNaArvore);
+            }
+
+
+        }
 
     }
     while(reposta!=7);
-    libera(creb);
+    if (creb == NULL)
+    {
+
+        libera(creb);
+    }
+
 }
 
 
@@ -149,11 +189,22 @@ Arv* inserirProduto( Arv * l, Produto i)
 
 
 
-int buscaArvore (Arv* a, int matricula){
- if (vazia(a))
- return 0; /* árvore vazia: não encontrou */
- else
- return a->info.matricula==matricula || busca(a->esq,matricula) || busca(a->dir,matricula);
+
+
+void removerProduto(Arv*a,int matricula){
+    printf("Iaa");
+}
+
+
+
+
+
+int buscaArvore (Arv* a, int matricula)
+{
+    if (vazia(a))
+        return 0; /* Ã¡rvore vazia: nÃ£o encontrou */
+    else
+        return a->info.matricula==matricula || busca(a->esq,matricula) || busca(a->dir,matricula);
 }
 
 
@@ -225,5 +276,3 @@ void imprimeTodosProduto(Arv *l)
 
     }
 }
-
-
