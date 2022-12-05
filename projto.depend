@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1670239667 source:/home/alunotgn/Documentos/projto/main.c
+	<stdio.h>
+	<stdlib.h>
+	"arvore.h"
+	"aarvore.h"
+
+1670239373 source:/home/alunotgn/Documentos/projto/arvore.c
+	<stdio.h>
+	<stdlib.h>
+	"arvore.h"
+
+1670236390 /home/alunotgn/Documentos/projto/arvore.h
+
+1670236558 source:/home/alunotgn/Documentos/projto/aarvore.c
+	"aarvore.h"
+	<stdio.h>
+	<stdlib.h>
+
+1670236547 /home/alunotgn/Documentos/projto/aarvore.h
+
